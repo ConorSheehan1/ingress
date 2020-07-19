@@ -16,3 +16,8 @@ poetry run python ingress.py enl
 # print default resistance
 poetry run python ingress.py res
 ```
+
+### lint
+```bash
+poetry run black .
+```

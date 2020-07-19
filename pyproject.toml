@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ingress"
+version = "0.1.0"
+description = "ingress ascii art"
+authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
+license = "mit"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+termcolor = "^1.1.0"
+fire = "^0.3.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

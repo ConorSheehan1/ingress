@@ -23,7 +23,7 @@ poetry run python ingress.py res
 poetry run python ingress.py both
 
 # change to whatever color you want!
-poetry run python ingress.py res --color=red
+poetry run python ingress.py res --text=white --background=blue
 ```
 
 ### lint

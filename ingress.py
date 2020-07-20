@@ -4,22 +4,22 @@ from termcolor import cprint, colored
 
 
 class Ingress:
-    def _print_file(self, filename, color="white", background=None):
+    def _print_file(self, filename, text_color="white", background=None):
         background_color = f"on_{background}" if background else None
         file_path = os.path.join("ascii_art", filename)
 
         with open(file_path) as f:
             for line in f:
-                # print without new lines
-                cprint(line, color, background_color, end="")
+                # print without new lines since they're included in the file
+                cprint(line, text_color, background_color, end="")
         # print one new line at end to separate block
         print()
 
-    def enl(self, color="green", background=None):
-        self._print_file("enlightened-32x24.txt", color)
+    def enl(self, text="green", background=None):
+        self._print_file("enlightened-32x24.txt", text, background)
 
-    def res(self, color="blue", background=None):
-        self._print_file("resistance-32x24.txt", color, background)
+    def res(self, text="blue", background=None):
+        self._print_file("resistance-32x24.txt", text, background)
 
     def both(self):
         enl_path = os.path.join("ascii_art", "enlightened-32x24.txt")

@@ -1,21 +1,36 @@
 import os
 import fire
-from termcolor import cprint
+from termcolor import cprint, colored
 
 
 class Ingress:
-    def _print_file(self, filename, text_color="white"):
+    def _print_file(self, filename, color="white", background=None):
+        background_color = f"on_{background}" if background else None
         file_path = os.path.join("ascii_art", filename)
+
         with open(file_path) as f:
             for line in f:
-                cprint(line, text_color, end="")
+                # print without new lines
+                cprint(line, color, background_color, end="")
+        # print one new line at end to separate block
         print()
 
-    def enl(self, color="green"):
+    def enl(self, color="green", background=None):
         self._print_file("enlightened-32x24.txt", color)
 
-    def res(self, color="blue"):
-        self._print_file("resistance-32x23.txt", color)
+    def res(self, color="blue", background=None):
+        self._print_file("resistance-32x24.txt", color, background)
+
+    def both(self):
+        enl_path = os.path.join("ascii_art", "enlightened-32x24.txt")
+        res_path = os.path.join("ascii_art", "resistance-32x24.txt")
+        with open(enl_path) as enlf, open(res_path) as resf:
+            for (enl_line, res_line) in zip(enlf, resf):
+                print(
+                    colored(enl_line.rstrip("\n"), "green"),
+                    colored(res_line.rstrip("\n"), "blue"),
+                )
+            print()
 
 
 if __name__ == "__main__":
